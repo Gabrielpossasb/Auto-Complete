@@ -4,9 +4,9 @@ import { Container } from './styles';
 import { TiBackspace } from "react-icons/ti";
 
 interface propsApi {
-  title: string;
-  id: number;
-  data: any;
+   title: string;
+   id: number;
+   data: any;
 }
 
 export function SearchBar(props:propsApi) {
@@ -15,19 +15,20 @@ para fazer o search atraves de uma api em forma de OBJETO {} adicionar o .title 
 "option.toLowerCase()" => "option.title.toLowerCase()". Se der certo o filter fara o map no data e percorrera 
 todos os "titles" e os colocando em letra minuscula
 */
-  const [inputSearch, setInputSearch] = useState('');
-  const [apiSearch, setApiSearch] = useState([]);
-  //const suggestions = api.filter( (option: string) => option.toLowerCase().includes(inputSearch.toLocaleLowerCase()));
-
+   const [inputSearch, setInputSearch] = useState('');
+   const [apiData, setApiData] = useState([]);
+   const suggestions = apiData.filter( (option:string) => option.toLowerCase().includes(inputSearch.toLocaleLowerCase()));
    
    
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const autocompleteRef = useRef<HTMLDivElement | null>(null);
+   const [showSuggestions, setShowSuggestions] = useState(false);
+   const autocompleteRef = useRef<HTMLDivElement | null>(null);
 
 
    useEffect(() => {
-      let api = props.data;
-      setApiSearch(api)
+      const api = props.data.map((val: {title:string}) => {return val.title})
+      setApiData(api)
+      console.log(api)
+
       const handleClick = (event: { target: any; }) => {
          if (autocompleteRef.current && !autocompleteRef.current.contains(event.target)) {
             setShowSuggestions(false)
@@ -38,20 +39,12 @@ todos os "titles" e os colocando em letra minuscula
       return () => {
          document.removeEventListener("click", handleClick)
       }
-
-
    }, [])
 
   
 
    function handleFilter(event: React.ChangeEvent<HTMLInputElement>) {
       setInputSearch(event.target.value)
-
-      const newFilter = apiSearch.filter((value: { title: string; }) => {
-         return value.title.toLowerCase().includes(inputSearch.toLowerCase())
-     })
-
-     setApiSearch(newFilter)
    }
 
    function handleClickAutoComplete(value : string)  {
@@ -75,10 +68,10 @@ todos os "titles" e os colocando em letra minuscula
          showSuggestions && (
             <div className='dataResult'>
             {
-               apiSearch.map((value: { id: number; title:string }) =>{
+               suggestions.map( (value: string ) =>{
                   return(
-                     <div key={value.id} className='dataItem' onClick={() => {handleClickAutoComplete(value.title)}}>
-                        <p>{value.title}</p>
+                     <div key={value} className='dataItem' onClick={() => {handleClickAutoComplete(value)}}>
+                        <p>{value}</p>
                      </div>
                   )
                })

@@ -6,7 +6,7 @@ import Searchs from './db.json'
 export function App() {
   return (
     <Container>
-      <SearchBar data={Searchs} title={''} id={0} />
+      <SearchBar data={Searchs} title={''} id={0}   />
     </Container>
   );
 }
