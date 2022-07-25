@@ -10,7 +10,9 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
 
-      width: 600px;
+      width: 90%;
+      max-width: 600px;
+      min-width: 400px;
       height: 65px;
       margin-bottom: 5px solid #4e4e4e;
       
@@ -35,6 +37,17 @@ export const Container = styled.div`
          }
       }
 
+      .del {
+         border-radius: 2rem;
+         margin-right: -20px;
+         padding: 3px 22px;
+         transition: background 0.6;
+         &:hover{
+            background: #eceaea;
+
+         }
+      }
+
       
    }
 
@@ -47,7 +60,9 @@ export const Container = styled.div`
       margin-bottom: 4px solid #2d2d2d;
       
       overflow-y: auto;
-      width: 632px;
+      width: 95%;
+      min-width: 432px;
+      max-width: 632px;
    }
 
    .dataResult::-webkit-scrollbar {
