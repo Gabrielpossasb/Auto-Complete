@@ -4,7 +4,6 @@ import { Container } from './styles';
 import { TiBackspace } from "react-icons/ti";
 import Modal from 'react-modal';
 
-Modal.setAppElement('#root');
 
 interface propsApi {
    title: string;
@@ -30,8 +29,6 @@ todos os "titles" e os colocando em letra minuscula
    const [modalIsOpen, setIsOpen] = useState(false);
 
    useEffect(() => {
-
-
       const handleClick = (event: { target: any; }) => {
          if (autocompleteRef.current && !autocompleteRef.current.contains(event.target)) {
             setShowSuggestions(false)
@@ -59,7 +56,6 @@ todos os "titles" e os colocando em letra minuscula
 
       { (newItem !== '') && (
          setApiData([...apiData,newItem])
-         
       )}
       
       { newItem !== '' && (
@@ -79,12 +75,6 @@ todos os "titles" e os colocando em letra minuscula
             +   
          </button>
 
-         <button
-            className='btnNewItem'
-             onClick={() => console.log(apiData)}
-         >
-            C 
-         </button>
          <div className='searchArea'>
             <div className='searchInput' ref={autocompleteRef}>
                
@@ -95,7 +85,7 @@ todos os "titles" e os colocando em letra minuscula
                   onChange={(val) => handleFilter(val)}
                   onFocus={() => setShowSuggestions(true)}
                />
-               <TiBackspace className='del' color='#394555' size={38} onClick={() => (setInputSearch(''))}/> 
+               <TiBackspace className='del' color='#394555' size={38} onClick={() => setInputSearch('')}/> 
                
             </div>
          
@@ -105,7 +95,7 @@ todos os "titles" e os colocando em letra minuscula
                {
                   suggestions.map( (value: string ) =>{
                      return(
-                        <div key={value} className='dataItem' onClick={() => {handleClickAutoComplete(value)}}>
+                        <div key={value} className='dataItem' onClick={() => handleClickAutoComplete(value)}>
                            <p>{value}</p>
                         </div>
                      )
@@ -129,7 +119,7 @@ todos os "titles" e os colocando em letra minuscula
                value={newItem}
                onChange={(val) => setNewItem(val.target.value)}
             />
-            <FcCheckmark size={28} onClick={() => { NewItemList()}} className='iconCheck'/>
+            <FcCheckmark size={28} onClick={() => NewItemList()} className='iconCheck'/>
          </Modal>
       </Container>
    );
