@@ -12,21 +12,22 @@ export const Container = styled.div`
 
       width: 90%;
       max-width: 600px;
-      min-width: 400px;
       height: 65px;
       margin-bottom: 5px solid #4e4e4e;
       
       border-radius: 1rem;
       padding: 0 2rem;
 
-      gap: 24px;
+      gap: 10px;
 
-      background-color: white;
+      background: #f0ebeb;
 
       input {
          border: 0;
          outline: 0;
-         background: none;
+         background: #dfdede;
+         padding: 10px 20px;
+         border-radius: 2rem;
          font-size: 22px;
          font-weight: 400;
          width: 100%;
@@ -40,16 +41,30 @@ export const Container = styled.div`
       .del {
          border-radius: 2rem;
          margin-right: -20px;
-         padding: 3px 22px;
-         transition: background 0.6;
+         padding: 3px 1rem;
+         transition: background 0.4s;
          &:hover{
-            background: #eceaea;
+            background: #dfdede;
 
          }
-      }
-
-      
+      }   
    }
+
+      .btnNewItem{
+         background: #198b8b;
+         border: 0;
+         color: #fff;
+         cursor: pointer;
+         font-size: 2.5rem;
+         padding: 0 11px;
+         border-radius: 2rem;
+         transition: background 0.4s;
+         margin-bottom: 1rem;
+         
+         &:hover{
+            background: #0f5a5a;
+         }
+      }
 
    .dataResult {
       background: #f1f1f1;
@@ -61,7 +76,6 @@ export const Container = styled.div`
       
       overflow-y: auto;
       width: 95%;
-      min-width: 432px;
       max-width: 632px;
    }
 
@@ -80,7 +94,7 @@ export const Container = styled.div`
          background: #e9e9e9;
       }
    }
-
-
+   
+   
    
 `;

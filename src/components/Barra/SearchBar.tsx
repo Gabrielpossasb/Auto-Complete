@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FcSearch } from 'react-icons/fc';
+import { FcSearch, FcCheckmark } from 'react-icons/fc';
 import { Container } from './styles';
 import { TiBackspace } from "react-icons/ti";
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 interface propsApi {
    title: string;
@@ -16,18 +19,18 @@ para fazer o search atraves de uma api em forma de OBJETO {} adicionar o .title 
 todos os "titles" e os colocando em letra minuscula
 */
    const [inputSearch, setInputSearch] = useState('');
-   const [apiData, setApiData] = useState([]);
+   const api = props.data.map((val: {title:string}) => {return val.title})
+   const [apiData, setApiData] = useState(api)
    const suggestions = apiData.filter( (option:string) => option.toLowerCase().includes(inputSearch.toLocaleLowerCase()));
-   
-   
+   const [newItem, setNewItem] = useState('');
+
    const [showSuggestions, setShowSuggestions] = useState(false);
    const autocompleteRef = useRef<HTMLDivElement | null>(null);
 
+   const [modalIsOpen, setIsOpen] = useState(false);
 
    useEffect(() => {
-      const api = props.data.map((val: {title:string}) => {return val.title})
-      setApiData(api)
-      console.log(api)
+
 
       const handleClick = (event: { target: any; }) => {
          if (autocompleteRef.current && !autocompleteRef.current.contains(event.target)) {
@@ -52,9 +55,37 @@ todos os "titles" e os colocando em letra minuscula
       setShowSuggestions(false)
    }
 
+   function NewItemList() {
+
+      { (newItem !== '') && (
+         setApiData([...apiData,newItem])
+         
+      )}
+      
+      { newItem !== '' && (
+         setIsOpen(false)
+      )}
+      
+      setNewItem('')
+   }
+
    return (
       <Container>
+         <button
+            className='btnNewItem'
+             onClick={() => setIsOpen(true)}
+         >
+            +   
+         </button>
+
+         <button
+            className='btnNewItem'
+             onClick={() => console.log(apiData)}
+         >
+            C 
+         </button>
          <div className='searchInput' ref={autocompleteRef}>
+            
             <FcSearch className='icon' color='#777676' size={32}/>
             <input 
                placeholder='Pesquisar...' 
@@ -62,8 +93,10 @@ todos os "titles" e os colocando em letra minuscula
                onChange={(val) => handleFilter(val)}
                onFocus={() => setShowSuggestions(true)}
             />
-            <TiBackspace className='del' color='#777676' size={38} onClick={() => (setInputSearch(''))}/>            
+            <TiBackspace className='del' color='#777676' size={38} onClick={() => (setInputSearch(''))}/> 
+              
          </div>
+         
          {
          showSuggestions && (
             <div className='dataResult'>
@@ -79,6 +112,22 @@ todos os "titles" e os colocando em letra minuscula
             </div>
          )
          }
+         
+         <Modal 
+            className='react-modal-content'
+            overlayClassName="react-modal-overlay"
+            isOpen={modalIsOpen}
+            onRequestClose={() => setIsOpen(false)}
+         >
+            <input 
+               type="text"
+               placeholder='Ex: Banana' 
+               className='newItem'
+               value={newItem}
+               onChange={(val) => setNewItem(val.target.value)}
+            />
+            <FcCheckmark size={48} onClick={() => { NewItemList()}} className='iconCheck'/>
+         </Modal>
       </Container>
    );
 }
