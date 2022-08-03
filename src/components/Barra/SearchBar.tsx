@@ -129,7 +129,7 @@ todos os "titles" e os colocando em letra minuscula
                value={newItem}
                onChange={(val) => setNewItem(val.target.value)}
             />
-            <FcCheckmark size={48} onClick={() => { NewItemList()}} className='iconCheck'/>
+            <FcCheckmark size={28} onClick={() => { NewItemList()}} className='iconCheck'/>
          </Modal>
       </Container>
    );
