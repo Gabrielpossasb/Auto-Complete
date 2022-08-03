@@ -71,6 +71,7 @@ todos os "titles" e os colocando em letra minuscula
 
    return (
       <Container>
+        
          <button
             className='btnNewItem'
              onClick={() => setIsOpen(true)}
@@ -84,34 +85,36 @@ todos os "titles" e os colocando em letra minuscula
          >
             C 
          </button>
-         <div className='searchInput' ref={autocompleteRef}>
-            
-            <FcSearch className='icon' color='#777676' size={32}/>
-            <input 
-               placeholder='Pesquisar...' 
-               value={inputSearch} 
-               onChange={(val) => handleFilter(val)}
-               onFocus={() => setShowSuggestions(true)}
-            />
-            <TiBackspace className='del' color='#777676' size={38} onClick={() => (setInputSearch(''))}/> 
-              
-         </div>
-         
-         {
-         showSuggestions && (
-            <div className='dataResult'>
-            {
-               suggestions.map( (value: string ) =>{
-                  return(
-                     <div key={value} className='dataItem' onClick={() => {handleClickAutoComplete(value)}}>
-                        <p>{value}</p>
-                     </div>
-                  )
-               })
-            }
+         <div className='searchArea'>
+            <div className='searchInput' ref={autocompleteRef}>
+               
+               <FcSearch className='icon' color='#777676' size={48}/>
+               <input 
+                  placeholder='Pesquisar...' 
+                  value={inputSearch} 
+                  onChange={(val) => handleFilter(val)}
+                  onFocus={() => setShowSuggestions(true)}
+               />
+               <TiBackspace className='del' color='#394555' size={38} onClick={() => (setInputSearch(''))}/> 
+               
             </div>
-         )
-         }
+         
+            {
+            showSuggestions && (
+               <div className='dataResult'>
+               {
+                  suggestions.map( (value: string ) =>{
+                     return(
+                        <div key={value} className='dataItem' onClick={() => {handleClickAutoComplete(value)}}>
+                           <p>{value}</p>
+                        </div>
+                     )
+                  })
+               }
+               </div>
+            )
+            }
+          </div>
          
          <Modal 
             className='react-modal-content'

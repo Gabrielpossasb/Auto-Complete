@@ -2,9 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
    display: flex;
-   align-items: center;
+   align-items: flex-start;
+   padding: 2rem;
+   gap: 2rem;
    justify-content: center;
-   flex-direction: column;
+   flex-direction: row;
 
    .searchInput {
       display: flex;
@@ -20,34 +22,41 @@ export const Container = styled.div`
 
       gap: 10px;
 
-      background: #f0ebeb;
+      background: #13181f;
 
       input {
          border: 0;
          outline: 0;
-         background: #dfdede;
+         background: #1a2129;
          padding: 10px 20px;
          border-radius: 2rem;
          font-size: 22px;
+         color: #3cb9b9;
          font-weight: 400;
          width: 100%;
 
          &::placeholder {
-         color: #969494
+         color: #537475
          
          }
       }
 
       .del {
          border-radius: 2rem;
+         background: #1a2129;
          margin-right: -20px;
          padding: 3px 1rem;
          transition: background 0.4s;
          &:hover{
-            background: #dfdede;
+            background: #2f3946;
 
          }
       }   
+   }
+   .searchArea {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
    }
 
       .btnNewItem{
@@ -59,7 +68,7 @@ export const Container = styled.div`
          padding: 0 11px;
          border-radius: 2rem;
          transition: background 0.4s;
-         margin-bottom: 1rem;
+         margin-top: 0.6rem;
          
          &:hover{
             background: #0f5a5a;
@@ -67,15 +76,17 @@ export const Container = styled.div`
       }
 
    .dataResult {
-      background: #f1f1f1;
+      background: #1a2129;
       border-bottom-left-radius: 1rem;
       border-bottom-right-radius: 1rem;
       max-height: 300px;
       overflow: hidden;
+      color: #2e8f8f;
       margin-bottom: 4px solid #2d2d2d;
       
       overflow-y: auto;
       width: 95%;
+      font-size: 1.25rem;
       max-width: 632px;
    }
 
@@ -91,7 +102,7 @@ export const Container = styled.div`
       cursor: pointer;
       
       &:hover {
-         background: #e9e9e9;
+         background: #1f2831;
       }
    }
    
