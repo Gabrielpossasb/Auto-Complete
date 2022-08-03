@@ -1,10 +1,11 @@
 {
-  "files": {
-    "main.js": "/Auto-Complete/static/js/main.356c402f.js",
-    "index.html": "/Auto-Complete/index.html",
-    "main.356c402f.js.map": "/Auto-Complete/static/js/main.356c402f.js.map"
-  },
-  "entrypoints": [
-    "static/js/main.356c402f.js"
-  ]
+  "main.js": "/Auto-Complete/static/js/main.bab1f368.chunk.js",
+  "main.js.map": "/Auto-Complete/static/js/main.bab1f368.chunk.js.map",
+  "static/js/1.59581db7.chunk.js": "/Auto-Complete/static/js/1.59581db7.chunk.js",
+  "static/js/1.59581db7.chunk.js.map": "/Auto-Complete/static/js/1.59581db7.chunk.js.map",
+  "runtime~main.js": "/Auto-Complete/static/js/runtime~main.2693f887.js",
+  "runtime~main.js.map": "/Auto-Complete/static/js/runtime~main.2693f887.js.map",
+  "index.html": "/Auto-Complete/index.html",
+  "precache-manifest.45c7f9ccc73ad15db91af006c98f24cb.js": "/Auto-Complete/precache-manifest.45c7f9ccc73ad15db91af006c98f24cb.js",
+  "service-worker.js": "/Auto-Complete/service-worker.js"
 }
