@@ -31,12 +31,12 @@ export const Container = styled.div`
          padding: 10px 20px;
          border-radius: 2rem;
          font-size: 22px;
-         color: #a455b9;
+         color: #0ebbbb;
          font-weight: 400;
          width: 100%;
 
          &::placeholder {
-            color: #58425e         
+            color: #0b4244         
          }
       }
 
@@ -80,7 +80,7 @@ export const Container = styled.div`
       border-bottom-right-radius: 1rem;
       max-height: 300px;
       overflow: hidden;
-      color: #a058b4;
+      color: #0ebbbb;
       margin-bottom: 4px solid #2d2d2d;
       
       overflow-y: auto;

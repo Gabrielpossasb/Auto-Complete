@@ -36,10 +36,10 @@ export const GlobalStyle = createGlobalStyle`
 			font-size: large;
 			border: 0;
 			border-bottom: 1px solid #58425e;
-			color: #a058b4;
+			color: #17d6d6;
 
 			&::placeholder {
-				color: #58425e;
+				color: #15665b;
 			}	
 			&:focus{
          	outline: 0;

@@ -17,8 +17,8 @@ para fazer o search atraves de uma api em forma de OBJETO {} adicionar o .title 
 "option.toLowerCase()" => "option.title.toLowerCase()". Se der certo o filter fara o map no data e percorrera 
 todos os "titles" e os colocando em letra minuscula
 */
-   const [inputSearch, setInputSearch] = useState('');
-   const api = props.data.map((val: {title:string}) => {return val.title})
+   const [inputSearch, setInputSearch] = useState(''); //busca
+   const api = props.data.map((val: {title:string}) => {return val.title}) //lis
    const [apiData, setApiData] = useState(api)
    const suggestions = apiData.filter( (option:string) => option.toLowerCase().includes(inputSearch.toLocaleLowerCase()));
    const [newItem, setNewItem] = useState('');
@@ -67,14 +67,6 @@ todos os "titles" e os colocando em letra minuscula
 
    return (
       <Container>
-        
-         <button
-            className='btnNewItem'
-             onClick={() => setIsOpen(true)}
-         >
-            +   
-         </button>
-
          <div className='searchArea'>
             <div className='searchInput' ref={autocompleteRef}>
                
@@ -104,7 +96,14 @@ todos os "titles" e os colocando em letra minuscula
                </div>
             )
             }
-          </div>
+         </div>
+
+         <button
+            className='btnNewItem'
+             onClick={() => setIsOpen(true)}
+         >
+            +   
+         </button>
          
          <Modal 
             className='react-modal-content'
