@@ -2,7 +2,7 @@
 
    # Search Bar
       
-   #### Uma barra de pesquisa com auto-complete, projeto que fiz pela curiosidade de entender como funcionava  ####
+   #### Uma barra de pesquisa com auto-complete, feito somente com React  ####
 
    :link: <https://gabrielpossasb.github.io/Auto-Complete/> :link:
 </div>
